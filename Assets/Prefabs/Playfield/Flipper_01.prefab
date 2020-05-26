@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1172033547861522311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2845729097202447137}
+  m_Layer: 0
+  m_Name: Flipper_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2845729097202447137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172033547861522311}
+  m_LocalRotation: {x: -0, y: 0.2164396, z: -0, w: 0.97629607}
+  m_LocalPosition: {x: 0.1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8172948593793362324}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5956959595366478221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131707366961716103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a83c96bea63bde42b3f1d8c4a6d46d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extensionSpeed:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 7e553840bf93abf45883643bf6cf6be6, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  retractionSpeed:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 6f4823abd593ad341b5395f1dfb528af, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  rotationInactive: {x: 0, y: 0, z: 0}
+  rotationActive: {x: 0, y: -45, z: 0}
+  rigidbody: {fileID: 5772556433412143749}
+  flipperOn:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: a9d4751bd6569c141abd034f7ac6cb3f, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  animationNormalizedTime: 0
+--- !u!1001 &6337053868842034801
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2845729097202447137}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_SceneBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SceneBindings.Array.data[0].key
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SceneBindings.Array.data[0].value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208864941538950646, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_Name
+      value: FlipperInner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9cbb86c211b20b64597ede5c247a266a, type: 3}
+--- !u!1 &5131707366961716103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1208864941538950646, guid: 9cbb86c211b20b64597ede5c247a266a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6337053868842034801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8172948593793362324 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2782549033674919909, guid: 9cbb86c211b20b64597ede5c247a266a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6337053868842034801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5772556433412143749 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 571255212442197236, guid: 9cbb86c211b20b64597ede5c247a266a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6337053868842034801}
+  m_PrefabAsset: {fileID: 0}
