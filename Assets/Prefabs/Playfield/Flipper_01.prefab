@@ -64,7 +64,7 @@ MonoBehaviour:
     debugFailedVariableReplacements: 0
     debugChanges: 1
   rotationInactive: {x: 0, y: 0, z: 0}
-  rotationActive: {x: 0, y: -45, z: 0}
+  rotationActive: {x: 0, y: -38, z: 0}
   rigidbody: {fileID: 5772556433412143749}
   flipperOn:
     useConstant: 0
