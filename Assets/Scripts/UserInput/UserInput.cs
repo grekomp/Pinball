@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UserInput : MonoBehaviour
 {
     public GameObject camera;
+    public GameObject joystickPrefab;
     public Slider slider;
 
     private FixedJoystick joystick;
@@ -28,7 +29,7 @@ public class UserInput : MonoBehaviour
 
     private void Awake()
     {
-        joystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
+        joystick = joystickPrefab.GetComponent<FixedJoystick>();
     }
 
     void Start()
