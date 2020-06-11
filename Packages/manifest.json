@@ -47,5 +47,14 @@
       "revision": "upm",
       "hash": "ab132d5488d925e0324689d956ba9f282ccc4112"
     }
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "Game Package Registry by Google",
+      "url": "https://unityregistry-pa.googleapis.com",
+      "scopes": [
+        "com.google"
+      ]
+    }
+  ]
 }
