@@ -9,8 +9,6 @@ public class PlayServices : MonoBehaviour
 {
     public static PlayServices Instance;
 
-    public Text text;
-
     private void Awake()
     {
         Instance = this;
@@ -31,14 +29,10 @@ public class PlayServices : MonoBehaviour
         PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) => {
             if (result.Equals(SignInStatus.Success))
             {
-                text.text = "The user has been authenticated correctly.";
                 Debug.Log("The user has been authenticated correctly.");
             }
             else
             {
-
-                text.text = "An error while authenticating.";
-//                text.text = PlayGamesPlatform.Instance.GetUserEmail();
                 Debug.LogError("An error while authenticating.");
             }
         });
@@ -59,13 +53,11 @@ public class PlayServices : MonoBehaviour
 
     public void IncrementAchievement()
     {
-        Debug.Log("Unlock Increment Achievement");
         PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_incremental_achievement_1, 5, success => { });
     }
 
     public void ShowAchievementsUI()
     {
-        Debug.Log("Show Achievements");
         Social.ShowAchievementsUI();
     }
     #endregion /Achievements
@@ -73,13 +65,11 @@ public class PlayServices : MonoBehaviour
     #region Leaderboards
     public void AddScoreToDescLeaderboard()
     {
-        Debug.Log("Add Score To Desc Leaderboard");
         Social.ReportScore(Random.Range(0, 100), GPGSIds.leaderboard_leaderboard_1_student_4, success => { });
     }
 
     public void AddScoreToAscLeaderboard()
     {
-        Debug.Log("Add Score To Asc Leaderboard");
         Social.ReportScore(Random.Range(0, 100), GPGSIds.leaderboard_leaderboard_2_student_4, success => { });
     }
     public void ShowLeaderboardsUI()
