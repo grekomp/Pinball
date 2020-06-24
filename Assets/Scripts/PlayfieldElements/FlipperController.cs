@@ -14,7 +14,7 @@ namespace Pinball
 
 
 		[Header("Components")]
-		public new Rigidbody rigidbody;
+		public Rigidbody rigidbody;
 
 
 		[Header("Input Variables")]

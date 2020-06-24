@@ -5,105 +5,123 @@ using UnityEngine.UI;
 
 public class UserInput : MonoBehaviour
 {
-    public GameObject camera;
-    public GameObject joystickPrefab;
-    public Slider slider;
+	public GameObject camera;
+	public GameObject joystickPrefab;
+	public Slider slider;
 
-    private FixedJoystick joystick;
+	[Space]
+	public BoolReference leftClick;
+	public BoolReference rightClick;
 
-    float accelerometerUpdateInterval = 1.0f / 60.0f;
-    // The greater the value of LowPassKernelWidthInSeconds, the slower the
-    // filtered value will converge towards current input sample (and vice versa).
-    float lowPassKernelWidthInSeconds = 1.0f;
-    // This next parameter is initialized to 2.0 per Apple's recommendation
-    float shakeDetectionThreshold = 1.0f;
-    float lowPassFilterFactor;
-    Vector3 lowPassValue;
+	private FixedJoystick joystick;
 
-    public enum ClickSide
-    {
-        Left,
-        Right,
-        None
-    }
+	float accelerometerUpdateInterval = 1.0f / 60.0f;
+	// The greater the value of LowPassKernelWidthInSeconds, the slower the
+	// filtered value will converge towards current input sample (and vice versa).
+	float lowPassKernelWidthInSeconds = 1.0f;
+	// This next parameter is initialized to 2.0 per Apple's recommendation
+	float shakeDetectionThreshold = 1.0f;
+	float lowPassFilterFactor;
+	Vector3 lowPassValue;
 
-    private void Awake()
-    {
-        joystick = joystickPrefab.GetComponent<FixedJoystick>();
-    }
+	public enum ClickSide
+	{
+		Left,
+		Right,
+		None
+	}
 
-    void Start()
-    {
-        lowPassFilterFactor = accelerometerUpdateInterval / lowPassKernelWidthInSeconds;
-        shakeDetectionThreshold *= shakeDetectionThreshold;
-        lowPassValue = Input.acceleration;
-    }
+	private void Awake()
+	{
+		joystick = joystickPrefab.GetComponent<FixedJoystick>();
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.touchCount >= 2)
-        {
-            Zoom(CalcualatePinchDistance());
-        }
+	void Start()
+	{
+		lowPassFilterFactor = accelerometerUpdateInterval / lowPassKernelWidthInSeconds;
+		shakeDetectionThreshold *= shakeDetectionThreshold;
+		lowPassValue = Input.acceleration;
+	}
 
-        CheckSideClick();
+	// Update is called once per frame
+	void Update()
+	{
+		if (Input.touchCount >= 2)
+		{
+			Zoom(CalcualatePinchDistance());
+		}
 
-        DetectNudge();
+		CheckSideClick();
 
-        SetPlugerStreanght();
-    }
+		DetectNudge();
 
-    public void Zoom(float value)
-    {
-        camera.transform.position = camera.transform.position + new Vector3(0, 0, value / 50.0f);
-    }
+		SetPlugerStreanght();
+	}
 
-    private void SetPlugerStreanght()
-    {
-        slider.value = -joystick.Vertical;
-    }
+	public void Zoom(float value)
+	{
+		camera.transform.position = camera.transform.position + new Vector3(0, 0, value / 50.0f);
+	}
 
-    private ClickSide CheckSideClick()
-    {
-        foreach (Touch touch in Input.touches)
-        {
-            if (touch.phase == TouchPhase.Ended)
-            {
-                Debug.Log((touch.position.x < (Screen.width / 2)) ? "Left click !" : "Right click !");
-                return (touch.position.x < (Screen.width / 2)) ? ClickSide.Left : ClickSide.Right;
-            }
-        }
-        return ClickSide.None;
-    }
+	private void SetPlugerStreanght()
+	{
+		slider.value = -joystick.Vertical;
+	}
 
-    private float CalcualatePinchDistance()
-    {
-        Touch touchOne = Input.GetTouch(0);
-        Touch touchTwo = Input.GetTouch(1);
-        Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
-        Vector2 touchTwoPrevPos = touchTwo.position - touchTwo.deltaPosition;
-        float previousMagnitude = (touchOnePrevPos - touchTwoPrevPos).magnitude;
-        float currentMagnitude = (touchOne.position - touchTwo.position).magnitude;
-        return currentMagnitude - previousMagnitude;
-    }
+	private void CheckSideClick()
+	{
+		bool leftClickState = false;
+		bool rightClickState = false;
 
-    private void DetectNudge()
-    {
-        Vector3 acceleration = Input.acceleration;
-        lowPassValue = Vector3.Lerp(lowPassValue, acceleration, lowPassFilterFactor);
-        Vector3 deltaAcceleration = (acceleration - lowPassValue);
+		foreach (Touch touch in Input.touches)
+		{
+			if (touch.position.x < (Screen.width / 2))
+			{
+				leftClickState = true;
+			}
+			else
+			{
+				rightClickState = true;
+			}
 
-        if (deltaAcceleration.sqrMagnitude >= shakeDetectionThreshold)
-        {
-            if (acceleration.x < -0.4)
-            {
-                Debug.Log("Shake left");
-            }
-            if (acceleration.x > 0.4)
-            {
-                Debug.Log("Shake right");
-            }
-        }
-    }
+			if (touch.phase == TouchPhase.Ended)
+			{
+				Debug.Log((touch.position.x < (Screen.width / 2)) ? "Left click !" : "Right click !");
+				//return (touch.position.x < (Screen.width / 2)) ? ClickSide.Left : ClickSide.Right;
+			}
+		}
+
+		leftClick.Value = leftClickState;
+		rightClick.Value = rightClickState;
+	}
+
+	private float CalcualatePinchDistance()
+	{
+		Touch touchOne = Input.GetTouch(0);
+		Touch touchTwo = Input.GetTouch(1);
+		Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+		Vector2 touchTwoPrevPos = touchTwo.position - touchTwo.deltaPosition;
+		float previousMagnitude = (touchOnePrevPos - touchTwoPrevPos).magnitude;
+		float currentMagnitude = (touchOne.position - touchTwo.position).magnitude;
+		return currentMagnitude - previousMagnitude;
+	}
+
+	private void DetectNudge()
+	{
+		Vector3 acceleration = Input.acceleration;
+		lowPassValue = Vector3.Lerp(lowPassValue, acceleration, lowPassFilterFactor);
+		Vector3 deltaAcceleration = (acceleration - lowPassValue);
+
+		if (deltaAcceleration.sqrMagnitude >= shakeDetectionThreshold)
+		{
+			if (acceleration.x < -0.4)
+			{
+				Debug.Log("Shake left");
+			}
+			if (acceleration.x > 0.4)
+			{
+				Debug.Log("Shake right");
+			}
+		}
+	}
 }
