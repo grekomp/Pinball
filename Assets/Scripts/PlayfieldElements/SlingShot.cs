@@ -12,6 +12,7 @@ namespace Pinball
 	{
 		[Header("Components")]
 		public CollisionEventForwarder collisionEventForwarder;
+		public ScoreObstacle scoreObstacle;
 
 		[Header("Variables")]
 		public FloatReference power = new FloatReference(5f);
@@ -42,6 +43,7 @@ namespace Pinball
 			Vector3 launchDirection = (baseLaunchDirection.normalized + (collision.collider.transform.position - transform.position).normalized * relativeDirectionFactor).normalized;
 			Vector3 launchVelocity = launchDirection * power;
 
+			scoreObstacle.Hit();
 			collision.collider.attachedRigidbody.velocity = launchVelocity;
 		}
 	}

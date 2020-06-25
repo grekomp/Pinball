@@ -6,6 +6,9 @@ namespace Pinball
 {
 	public class Bumper : MonoBehaviour
 	{
+		[Header("Components")]
+		public ScoreObstacle scoreObstacle;
+
 		[Header("Variables")]
 		public FloatReference power = new FloatReference(5f);
 
@@ -16,6 +19,7 @@ namespace Pinball
 				Vector3 launchDirection = (other.transform.position - transform.position).normalized;
 				Vector3 launchVelocity = launchDirection * power;
 
+				scoreObstacle.Hit();
 				other.attachedRigidbody.velocity = launchVelocity;
 			}
 		}

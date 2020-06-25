@@ -6,18 +6,19 @@ using UnityEngine.UI;
 
 public class MessageDisplayer : MonoBehaviour
 {
-    public Text display;
+    public GameObject displayer;
+    public Text displayText;
 
     public void SetText(string message, float duration = 2.5f)
     {
-        display.text = message;
+        displayText.text = message;
         StartCoroutine(DisplayTextForSeconds(duration));
     }
 
     private IEnumerator DisplayTextForSeconds(float seconds)
     {
-        display.gameObject.SetActive(true);
+        displayer.gameObject.SetActive(true);
         yield return new WaitForSeconds(seconds);
-        display.gameObject.SetActive(false);
+        displayer.gameObject.SetActive(false);
     }
 }

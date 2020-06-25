@@ -9,7 +9,9 @@ public class UIGameController : MonoBehaviour
     public GameObject onGameUI;
     public GameObject onStartUI;
     public GameObject pauseUI;
+    public GameObject gameOverUI;
     public Text score;
+    public Text lives;
     public LevelController LC;
 
     private LevelPhase lastLevelPhase;
@@ -17,6 +19,7 @@ public class UIGameController : MonoBehaviour
     private void Update()
     {
         score.text = "Score: " + LC.score;
+        lives.text = "x " + LC.lives;
     }
 
     public void ExitGame()
@@ -47,5 +50,16 @@ public class UIGameController : MonoBehaviour
     public void SetOnStartUiVisibility(bool visibility)
     {
         onStartUI.SetActive(visibility);
+    }
+
+    public void GameOver()
+    {
+        gameOverUI.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        gameOverUI.SetActive(false);
+        LC.RestartGame();
     }
 }

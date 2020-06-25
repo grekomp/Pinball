@@ -51,8 +51,6 @@ public class UserInput : MonoBehaviour
 			Zoom(CalcualatePinchDistance());
 		}
 
-		CheckSideClick();
-
 		DetectNudge();
 
 		SetPlugerStreanght();
@@ -66,33 +64,6 @@ public class UserInput : MonoBehaviour
 	private void SetPlugerStreanght()
 	{
 		slider.value = -joystick.Vertical;
-	}
-
-	private void CheckSideClick()
-	{
-		bool leftClickState = false;
-		bool rightClickState = false;
-
-		foreach (Touch touch in Input.touches)
-		{
-			if (touch.position.x < (Screen.width / 2))
-			{
-				leftClickState = true;
-			}
-			else
-			{
-				rightClickState = true;
-			}
-
-			if (touch.phase == TouchPhase.Ended)
-			{
-				Debug.Log((touch.position.x < (Screen.width / 2)) ? "Left click !" : "Right click !");
-				//return (touch.position.x < (Screen.width / 2)) ? ClickSide.Left : ClickSide.Right;
-			}
-		}
-
-		leftClick.Value = leftClickState;
-		rightClick.Value = rightClickState;
 	}
 
 	private float CalcualatePinchDistance()

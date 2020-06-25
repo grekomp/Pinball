@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using UnityEngine.UI;
+using Pinball;
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
+
+    private Plunger plunger;
+    private Slider slider;
 
     public float HandleRange
     {
@@ -42,6 +46,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     protected virtual void Start()
     {
+        plunger = GameObject.Find("Plunger").GetComponent<Plunger>();
+        slider = GameObject.Find("PlungerForce").GetComponent<Slider>();
         HandleRange = handleRange;
         DeadZone = deadZone;
         baseRect = GetComponent<RectTransform>();
@@ -131,6 +137,9 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     public virtual void OnPointerUp(PointerEventData eventData)
     {
+        // Joystic release
+        plunger.SetPlungerTension(slider.value);
+        plunger.ReleasePlunger();
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
     }

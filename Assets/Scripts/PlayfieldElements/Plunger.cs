@@ -43,6 +43,7 @@ namespace Pinball
 		}
 		protected void OnTriggerExit(Collider other)
 		{
+			Debug.Log(other.gameObject.name);
 			if (other.gameObject == readyBall.gameObject)
 			{
 				readyBall = null;

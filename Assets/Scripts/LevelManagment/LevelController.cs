@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Pinball;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,10 +15,12 @@ public enum LevelPhase {
 public class LevelController : MonoBehaviour
 {
     public int score = 0;
-    public int lives = 3;
+    private const int START_LIVES = 3;
+    public int lives = START_LIVES;
     public bool canTriggerFlippers = true;
     public UIGameController UIController;
     public MessageDisplayer messageDisplayer;
+    public Plunger plunger;
     private LevelPhase actualLevelPhase;
 
     public LevelPhase ActualLevelPhase {
@@ -27,7 +30,7 @@ public class LevelController : MonoBehaviour
 
     private void Start()
     {
-        actualLevelPhase = LevelPhase.Start;
+        SetPhase(LevelPhase.Start);
     }
 
     private void Update()
@@ -56,7 +59,7 @@ public class LevelController : MonoBehaviour
         canTriggerFlippers = true;
         if (actualLevelPhase == LevelPhase.Start)
         {
-            ShowStartUI();
+            StartGame();
         } else
         {
             HideStartUI();
@@ -64,12 +67,48 @@ public class LevelController : MonoBehaviour
             {
                 Tilt();
             }
+            if (actualLevelPhase == LevelPhase.Game)
+            {
+                Game();
+            }
             if (actualLevelPhase == LevelPhase.GameOver)
             {
                 GameOver();
             }
         }
 
+    }
+
+    public void RestartGame()
+    {
+        lives = START_LIVES;
+        score = 0;
+        SetPhase(LevelPhase.Start);
+    }
+
+    public void StartGame()
+    {
+        ShowStartUI();
+        plunger.SpawnBall();
+        canTriggerFlippers = false;
+    }
+
+    public void Game()
+    {
+        canTriggerFlippers = true;
+    }
+
+    public void RemoveLife()
+    {
+        messageDisplayer.SetText("Fail !");
+        lives--;
+        if (lives == 0)
+        {
+            SetPhase(LevelPhase.GameOver);
+        } else
+        {
+            SetPhase(LevelPhase.Start);
+        }
     }
 
     public void ShowStartUI()
@@ -82,16 +121,6 @@ public class LevelController : MonoBehaviour
         UIController.SetOnStartUiVisibility(false);
     }
 
-    public void IncreaseScore(int value)
-    {
-        score += value;
-    }
-
-    public void DecreaseScore(int value)
-    {
-        score -= value;
-    }
-
     private void Tilt()
     {
         canTriggerFlippers = false;
@@ -101,6 +130,6 @@ public class LevelController : MonoBehaviour
     private void GameOver()
     {
         canTriggerFlippers = false;
-        Debug.Log("Game OVer !");
+        UIController.GameOver();
     }
 }

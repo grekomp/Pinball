@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 2079971809770104190}
   - component: {fileID: 6938532418754415208}
   - component: {fileID: 7760593538843670104}
+  - component: {fileID: 7550827401323705302}
   m_Layer: 0
   m_Name: Bumper
   m_TagString: Untagged
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a4532604944184e870b94df3891d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreObstacle: {fileID: 7550827401323705302}
   power:
     useConstant: 0
     constantValue: 5
@@ -115,6 +117,20 @@ MonoBehaviour:
     debugVariableReplacements: 1
     debugFailedVariableReplacements: 0
     debugChanges: 1
+--- !u!114 &7550827401323705302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678712043509746635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b2bb14151fedc4c91742a6e497c5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreType: 20
+  scoreController: {fileID: 0}
 --- !u!1 &7103368758947783417
 GameObject:
   m_ObjectHideFlags: 0
