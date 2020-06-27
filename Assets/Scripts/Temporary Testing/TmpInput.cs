@@ -31,7 +31,7 @@ public class TmpInput : MonoBehaviour
 	{
 		leftPressed.Value = Input.GetKey(leftKey);
 		rightPressed.Value = Input.GetKey(rightKey);
-
+		/*
 		if (levelController.canTriggerFlippers)
 		{
 			foreach (Touch touch in Input.touches)
@@ -71,14 +71,14 @@ public class TmpInput : MonoBehaviour
 		}
 
 		leftPressed.Value = leftClickState;
-		rightPressed.Value = rightClickState;
-		/*
+		rightPressed.Value = rightClickState;*/
+		
 		if (Input.GetKeyDown(leftKey)) onLeftPressed.Raise();
 		if (Input.GetKeyUp(leftKey)) onLeftReleased.Raise();
 
 		if (Input.GetKeyDown(rightKey)) onRightPressed.Raise();
 		if (Input.GetKeyUp(rightKey)) onRightReleased.Raise();
-		*/
+		
 		if (Input.GetKeyDown(spawnExtraBallKey)) onSpawnExtraBallPressed.Raise();
 	}
 }

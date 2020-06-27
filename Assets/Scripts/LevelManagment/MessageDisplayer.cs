@@ -15,6 +15,11 @@ public class MessageDisplayer : MonoBehaviour
         StartCoroutine(DisplayTextForSeconds(duration));
     }
 
+    public void HideMessage()
+    {
+        displayer.gameObject.SetActive(false);
+    }
+
     private IEnumerator DisplayTextForSeconds(float seconds)
     {
         displayer.gameObject.SetActive(true);

@@ -24,6 +24,7 @@ public class UIGameController : MonoBehaviour
 
     public void ExitGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }
 

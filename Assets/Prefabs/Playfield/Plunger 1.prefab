@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1653463563118976120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1653463563118976127}
+  - component: {fileID: 1653463563118976126}
+  m_Layer: 0
+  m_Name: Plunger 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1653463563118976127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653463563118976120}
+  m_LocalRotation: {x: -0, y: -0.99839175, z: 0.056692794, w: 0}
+  m_LocalPosition: {x: -0.2628, y: 0.019, z: -0.148}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8949989780033189347}
+  - {fileID: 9097710069863338471}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1653463563118976126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653463563118976120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c177e8f76106502459b347e661750f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballSpawnPoint: {fileID: 9097710069863338471}
+  triggerArea: {fileID: 4236473608601550554}
+  launchDirection:
+    useConstant: 1
+    constantValue: {x: 0, y: 0, z: 1}
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  launchForce:
+    useConstant: 0
+    constantValue: 0.4
+    variable: {fileID: 11400000, guid: 467a789acd91f9844b640a5352a838e2, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  normalizedPlungerTension:
+    useConstant: 1
+    constantValue: 0
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  ballPrefab: {fileID: 5153869884934533580, guid: 77ccb375027d11945a26a236b518eaa4,
+    type: 3}
+  readyBall: {fileID: 0}
+--- !u!1 &5874936041838046812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8949989780033189347}
+  - component: {fileID: 4616569260425496728}
+  - component: {fileID: 4236473608601550554}
+  m_Layer: 0
+  m_Name: PlungerTriggerArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8949989780033189347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5874936041838046812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0019, y: 0, z: -0.0161}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1653463563118976127}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4616569260425496728
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5874936041838046812}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03, y: 0.05, z: 0.005}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4236473608601550554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5874936041838046812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b269c4e6c3e7449b1c680f674c1aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6743721644041341217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9097710069863338471}
+  m_Layer: 0
+  m_Name: BallSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9097710069863338471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743721644041341217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.0358, z: 0.0506}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1653463563118976127}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

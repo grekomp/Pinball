@@ -20,6 +20,7 @@ public class LevelController : MonoBehaviour
     public bool canTriggerFlippers = true;
     public UIGameController UIController;
     public MessageDisplayer messageDisplayer;
+    public TriggerController triggerControler;
     public Plunger plunger;
     private LevelPhase actualLevelPhase;
 
@@ -101,6 +102,7 @@ public class LevelController : MonoBehaviour
     public void RemoveLife()
     {
         messageDisplayer.SetText("Fail !");
+        triggerControler.ResetAllTriggers();
         lives--;
         if (lives == 0)
         {
@@ -130,6 +132,7 @@ public class LevelController : MonoBehaviour
     private void GameOver()
     {
         canTriggerFlippers = false;
+        messageDisplayer.HideMessage();
         UIController.GameOver();
     }
 }
