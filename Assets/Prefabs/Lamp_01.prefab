@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8174063203399443011}
   - component: {fileID: 6852109153896490124}
+  - component: {fileID: 2333835615847235804}
   m_Layer: 0
   m_Name: Lamp_01
   m_TagString: Untagged
@@ -71,6 +72,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2333835615847235804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128266216525385808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31031e8be5d4e92449d0441c411bff42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLighted: 0
+  on: {fileID: 2100000, guid: af0e516548d88ad4da5bdbf2a22562c1, type: 2}
+  off: {fileID: 2100000, guid: 8c833397074f2054faee8abc96956d1a, type: 2}
+  bulb: {fileID: 6762124585095072980}
 --- !u!1001 &8727461519022786781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,11 +155,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp_01
       objectReference: {fileID: 0}
+    - target: {fileID: 3646235254530020741, guid: 6c37558cf5795db47bd6f83323a623fa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8c833397074f2054faee8abc96956d1a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c37558cf5795db47bd6f83323a623fa, type: 3}
 --- !u!4 &4351771143794271175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 6c37558cf5795db47bd6f83323a623fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 8727461519022786781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6762124585095072980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2650870279541720073, guid: 6c37558cf5795db47bd6f83323a623fa,
     type: 3}
   m_PrefabInstance: {fileID: 8727461519022786781}
   m_PrefabAsset: {fileID: 0}
