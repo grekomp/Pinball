@@ -21,7 +21,7 @@ namespace Pinball
 
 		private void Awake()
 		{
-			collisionEventForwarder.OnCollisionEnterEvent += OnCollisionEnter;
+			collisionEventForwarder.OnCollisionEnterEvent += OnTriggerAreaCollisionEnter;
 		}
 
 		private void OnDrawGizmosSelected()
@@ -30,7 +30,7 @@ namespace Pinball
 			Gizmos.DrawLine(transform.position, transform.position + baseLaunchDirection * 0.1f);
 		}
 
-		private void OnCollisionEnter(Collision collision)
+		private void OnTriggerAreaCollisionEnter(Collision collision)
 		{
 			if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ball"))
 			{
