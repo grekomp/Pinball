@@ -102,9 +102,10 @@ MonoBehaviour:
   scoreControler: {fileID: 0}
   triggerControler: {fileID: 0}
   scoreType: 10
+  audioController: {fileID: 0}
   bulb: {fileID: 7721700584970063063}
-  on: {fileID: 2100000, guid: af0e516548d88ad4da5bdbf2a22562c1, type: 2}
-  off: {fileID: 2100000, guid: 8c833397074f2054faee8abc96956d1a, type: 2}
+  on: {fileID: 2100000, guid: daaac93327f6e8e41968327a85d8d261, type: 2}
+  off: {fileID: 2100000, guid: 5ce66dd2b04e16845b9852fd7008e8cb, type: 2}
 --- !u!1001 &6456157087600319844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,11 +173,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target_03
       objectReference: {fileID: 0}
+    - target: {fileID: 3702366098996159269, guid: 92dab2408d1352c4eb24ceeb92ccabae,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0173534a8ec8f0b4dbcfa790335776b9, type: 2}
     - target: {fileID: 8345872910886078213, guid: 92dab2408d1352c4eb24ceeb92ccabae,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8c833397074f2054faee8abc96956d1a, type: 2}
+      objectReference: {fileID: 2100000, guid: 5ce66dd2b04e16845b9852fd7008e8cb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92dab2408d1352c4eb24ceeb92ccabae, type: 3}
 --- !u!4 &2081318769444009598 stripped

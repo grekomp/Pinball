@@ -44,10 +44,16 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     private Vector2 input = Vector2.zero;
 
-    protected virtual void Start()
+    private void Awake()
     {
         plunger = GameObject.Find("Plunger").GetComponent<Plunger>();
+        Debug.Log(plunger);
+        Debug.Log(gameObject.name);
         slider = GameObject.Find("PlungerForce").GetComponent<Slider>();
+    }
+
+    protected virtual void Start()
+    {
         HandleRange = handleRange;
         DeadZone = deadZone;
         baseRect = GetComponent<RectTransform>();

@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreType: 20
   scoreController: {fileID: 0}
+  audioController: {fileID: 0}
 --- !u!1001 &3984967760679086237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,6 +194,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: d00d4b0650a180a418aa1b6aa2771355,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 373cfaa518a512c458217c805f6f4fe7, type: 2}
     - target: {fileID: -927199367670048503, guid: d00d4b0650a180a418aa1b6aa2771355,
         type: 3}
       propertyPath: m_Name

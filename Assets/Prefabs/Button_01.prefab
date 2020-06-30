@@ -94,9 +94,10 @@ MonoBehaviour:
   scoreControler: {fileID: 0}
   triggerControler: {fileID: 0}
   scoreType: 10
+  audioController: {fileID: 0}
   bulb: {fileID: 6698851984690548589}
-  on: {fileID: 2100000, guid: af0e516548d88ad4da5bdbf2a22562c1, type: 2}
-  off: {fileID: 2100000, guid: d49660c2172ae0741a36e7b6d043515e, type: 2}
+  on: {fileID: 2100000, guid: 0838eaeedc5636746936377145feebb9, type: 2}
+  off: {fileID: 2100000, guid: daaac93327f6e8e41968327a85d8d261, type: 2}
 --- !u!1 &6698851984690548589
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +156,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d49660c2172ae0741a36e7b6d043515e, type: 2}
+  - {fileID: 2100000, guid: daaac93327f6e8e41968327a85d8d261, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -234,7 +235,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: ca234024dbbd27b45a3228958060c06b, type: 3}
+  - {fileID: 2100000, guid: 0173534a8ec8f0b4dbcfa790335776b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

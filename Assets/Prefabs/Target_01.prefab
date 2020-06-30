@@ -89,6 +89,7 @@ MonoBehaviour:
   scoreControler: {fileID: 0}
   triggerControler: {fileID: 0}
   scoreType: 10
+  audioController: {fileID: 0}
   bulb: {fileID: 5744623652752952486}
   on: {fileID: 2100000, guid: af0e516548d88ad4da5bdbf2a22562c1, type: 2}
   off: {fileID: 2100000, guid: 8c833397074f2054faee8abc96956d1a, type: 2}
@@ -112,6 +113,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2925914482250098787}
     m_Modifications:
+    - target: {fileID: -8148131476980713920, guid: 08b3e6c34d0791940b88468c40bd568c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0173534a8ec8f0b4dbcfa790335776b9, type: 2}
     - target: {fileID: -6186401502022499915, guid: 08b3e6c34d0791940b88468c40bd568c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

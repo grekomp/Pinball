@@ -289,6 +289,7 @@ MonoBehaviour:
   teleportingBall: {fileID: 0}
   bulbController: {fileID: 279136233}
   triggerArea: {fileID: 356427568}
+  audioController: {fileID: 0}
   scoreObstacle: {fileID: 0}
   delayTime: 3
 --- !u!1001 &253042609
@@ -5218,6 +5219,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.0173
       objectReference: {fileID: 0}
+    - target: {fileID: 2063663962576321653, guid: a0e7750645c07424180463541f5e75de,
+        type: 3}
+      propertyPath: m_Name
+      value: PlungerWalls
+      objectReference: {fileID: 0}
     - target: {fileID: 2265528156231761045, guid: a0e7750645c07424180463541f5e75de,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -5397,7 +5403,7 @@ PrefabInstance:
     - target: {fileID: 5637429726445269168, guid: a0e7750645c07424180463541f5e75de,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6094449310995994154, guid: a0e7750645c07424180463541f5e75de,
         type: 3}
