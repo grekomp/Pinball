@@ -90,9 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe333d68cf95cc0468d5c7f813720c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggered: 0
+  isTriggered: 0
   scoreControler: {fileID: 0}
-  scoreType: 40
+  triggerControler: {fileID: 0}
+  scoreType: 10
   bulb: {fileID: 6698851984690548589}
   on: {fileID: 2100000, guid: af0e516548d88ad4da5bdbf2a22562c1, type: 2}
   off: {fileID: 2100000, guid: d49660c2172ae0741a36e7b6d043515e, type: 2}

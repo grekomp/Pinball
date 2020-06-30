@@ -122,6 +122,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 14c34b0cccd6c47429615eefb6fe10f8,
         type: 2}
+    - target: {fileID: 5956959595366478221, guid: cc228d27d552a3547aa31d40b2e6905f,
+        type: 3}
+      propertyPath: flipperOn.useConstant
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6183590201730790311, guid: cc228d27d552a3547aa31d40b2e6905f,
         type: 3}
       propertyPath: m_LocalScale.x

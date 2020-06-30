@@ -9,12 +9,16 @@ public class Teleport : MonoBehaviour
     public GameObject teleportingBall = null;
     public BulbsController bulbController;
     public CollisionEventForwarder triggerArea;
+    public AudioController audioController;
+    public ScoreObstacle scoreObstacle;
     public float delayTime;
     private Vector3 velocity = new Vector3();
 
     private void Awake()
     {
         triggerArea.OnTriggerEnterEvent += OnTriggerEnter;
+        scoreObstacle = gameObject.GetComponent<ScoreObstacle>();
+        audioController = GameObject.Find("Main Camera").GetComponent<AudioController>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -22,10 +26,12 @@ public class Teleport : MonoBehaviour
         var ball = other.GetComponent<Ball>();
         if (ball != null)
         {
+            scoreObstacle.Hit();
             teleportingBall = other.gameObject;
-            velocity = other.attachedRigidbody.velocity;
+            velocity = other.gameObject.GetComponent<Collider>().attachedRigidbody.velocity;
             teleportingBall.GetComponent<Collider>().attachedRigidbody.velocity = new Vector3();
             teleportingBall.SetActive(false);
+            audioController.Teleport();
             StartCoroutine(StartTeleport());
         }
     }

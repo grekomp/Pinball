@@ -9,6 +9,7 @@ public class Trigger : MonoBehaviour
     public ScoreController scoreControler;
     public TriggerController triggerControler;
     public ScoreType scoreType = ScoreType.Trigger;
+    public AudioController audioController;
     public GameObject bulb;
     public Material on;
     public Material off;
@@ -18,6 +19,7 @@ public class Trigger : MonoBehaviour
     {
         scoreControler = GameObject.Find("LevelManagment").GetComponent<ScoreController>();
         triggerControler = GameObject.Find("LevelManagment").GetComponent<TriggerController>();
+        audioController = GameObject.Find("Main Camera").GetComponent<AudioController>();
         triggerControler.AddTrigger(transform.gameObject);
     }
 
@@ -25,6 +27,7 @@ public class Trigger : MonoBehaviour
     {
         scoreControler.IncreaseScore(scoreType);
         isTriggered = !isTriggered;
+        //audioController.PlayObstalce(scoreType);
         ChangeColor();
     }
 

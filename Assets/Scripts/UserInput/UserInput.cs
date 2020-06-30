@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class UserInput : MonoBehaviour
 {
 	public GameObject camera;
 	public GameObject joystickPrefab;
 	public Slider slider;
+	public NudgeController nudgeController;
+	public AchivementControlller achivementController;
 
 	[Space]
 	public BoolReference leftClick;
@@ -58,7 +59,8 @@ public class UserInput : MonoBehaviour
 
 	public void Zoom(float value)
 	{
-		camera.transform.position = camera.transform.position + new Vector3(0, 0, value / 50.0f);
+		achivementController.PinchToZoomAchivement();
+		//camera.transform.position = camera.transform.position + new Vector3(0, 0, value / 50.0f);
 	}
 
 	private void SetPlugerStreanght()
@@ -87,11 +89,11 @@ public class UserInput : MonoBehaviour
 		{
 			if (acceleration.x < -0.4)
 			{
-				Debug.Log("Shake left");
+				nudgeController.Nudge(NudgeSide.Left);
 			}
 			if (acceleration.x > 0.4)
 			{
-				Debug.Log("Shake right");
+				nudgeController.Nudge(NudgeSide.Right);
 			}
 		}
 	}

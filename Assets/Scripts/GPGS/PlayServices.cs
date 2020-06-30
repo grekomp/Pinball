@@ -39,21 +39,19 @@ public class PlayServices : MonoBehaviour
     }
 
     #region Achievements
-    public void UnlockAchievement()
+    public void UnlockAchievement(string achivId)
     {
-        Debug.Log("Unlock Achievement");
-        Social.ReportProgress(GPGSIds.achievement_achievement_1, 100, success => { });
+        Social.ReportProgress(achivId, 100, success => { });
     }
 
-    public void UnlockHiddenAchievement()
+    public void UnlockHiddenAchievement(string achivId)
     {
-        Debug.Log("Unlock Hidden Achievement");
-        Social.ReportProgress(GPGSIds.achievement_hidden_achievement_1, 100, success => { });
+        Social.ReportProgress(achivId, 100, success => { });
     }
 
-    public void IncrementAchievement()
+    public void IncrementAchievement(string achivId, int value)
     {
-        PlayGamesPlatform.Instance.IncrementAchievement(GPGSIds.achievement_incremental_achievement_1, 5, success => { });
+        PlayGamesPlatform.Instance.IncrementAchievement(achivId, value, success => { });
     }
 
     public void ShowAchievementsUI()
@@ -63,18 +61,17 @@ public class PlayServices : MonoBehaviour
     #endregion /Achievements
 
     #region Leaderboards
-    public void AddScoreToDescLeaderboard()
+    public void AddScoreToDescLeaderboard(int score)
     {
-        Social.ReportScore(Random.Range(0, 100), GPGSIds.leaderboard_leaderboard_1_student_4, success => { });
+        Social.ReportScore(score, GPGSIds.leaderboard_leaderboard_1_student_4, success => { });
     }
 
-    public void AddScoreToAscLeaderboard()
+    public void AddScoreToAscLeaderboard(int score)
     {
-        Social.ReportScore(Random.Range(0, 100), GPGSIds.leaderboard_leaderboard_2_student_4, success => { });
+        Social.ReportScore(score, GPGSIds.leaderboard_leaderboard_2_student_4, success => { });
     }
     public void ShowLeaderboardsUI()
     {
-        Debug.Log("Show Leaderboards");
         Social.ShowLeaderboardUI();
     }
     #endregion /Leaderboards

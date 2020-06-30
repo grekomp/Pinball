@@ -27,6 +27,13 @@ public class TmpInput : MonoBehaviour
 	bool leftClickState = false;
 	bool rightClickState = false;
 
+	private LevelController LevelController;
+
+	private void Awake()
+	{
+		levelController = GameObject.Find("LevelManagment").GetComponent<LevelController>();
+	}
+
 	public void Update()
 	{
 		leftPressed.Value = Input.GetKey(leftKey);
@@ -71,12 +78,18 @@ public class TmpInput : MonoBehaviour
 		}
 
 		leftPressed.Value = leftClickState;
-		rightPressed.Value = rightClickState;*/
-		
-		if (Input.GetKeyDown(leftKey)) onLeftPressed.Raise();
+		rightPressed.Value = rightClickState;
+		*/
+		if (Input.GetKeyDown(leftKey)) {
+			levelController.FlipperMoved();
+			onLeftPressed.Raise();
+		}
 		if (Input.GetKeyUp(leftKey)) onLeftReleased.Raise();
 
-		if (Input.GetKeyDown(rightKey)) onRightPressed.Raise();
+		if (Input.GetKeyDown(rightKey)) {
+			levelController.FlipperMoved();
+			onRightPressed.Raise();
+		};
 		if (Input.GetKeyUp(rightKey)) onRightReleased.Raise();
 		
 		if (Input.GetKeyDown(spawnExtraBallKey)) onSpawnExtraBallPressed.Raise();

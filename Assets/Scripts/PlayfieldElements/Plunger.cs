@@ -9,7 +9,9 @@ namespace Pinball
 	{
 		[Header("Components")]
 		public Transform ballSpawnPoint;
+		public LevelController levelController;
 		public CollisionEventForwarder triggerArea;
+		private AudioController audioController;
 
 		[Header("Variables")]
 		public Vector3Reference launchDirection;
@@ -22,12 +24,15 @@ namespace Pinball
 		[Header("Runtime variables")]
 		public Ball readyBall;
 
+		private List<Ball> balls = new List<Ball>();
 
 		#region Initialization
 		private void Awake()
 		{
 			triggerArea.OnTriggerEnterEvent += OnTriggerEnter;
 			triggerArea.OnTriggerExitEvent += OnTriggerExit;
+			levelController = GameObject.Find("LevelManagment").GetComponent<LevelController>();
+			audioController = GameObject.Find("Main Camera").GetComponent<AudioController>();
 		}
 		#endregion
 
@@ -39,11 +44,14 @@ namespace Pinball
 			if (ball != null)
 			{
 				readyBall = ball;
+				if (levelController.ActualLevelPhase == LevelPhase.Game)
+				{
+					levelController.SetPhase(LevelPhase.Start);
+				}
 			}
 		}
 		protected void OnTriggerExit(Collider other)
 		{
-			Debug.Log(other.gameObject.name);
 			if (other.gameObject == readyBall.gameObject)
 			{
 				readyBall = null;
@@ -56,12 +64,16 @@ namespace Pinball
 		[ContextMenu("Spawn Ball")]
 		public void SpawnBall()
 		{
-			Instantiate(ballPrefab, ballSpawnPoint.position, ballSpawnPoint.rotation);
+			if (readyBall == null)
+			{
+				balls.Add(Instantiate(ballPrefab, ballSpawnPoint.position, ballSpawnPoint.rotation));
+			}
 		}
 		public void LaunchPreparedBall()
 		{
 			if (readyBall)
 			{
+				audioController.BallShot();
 				readyBall.rigidbody.AddForce(GetCurrentLaunchForceVector(), ForceMode.Impulse);
 			}
 		}

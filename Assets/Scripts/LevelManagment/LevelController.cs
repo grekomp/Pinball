@@ -22,6 +22,9 @@ public class LevelController : MonoBehaviour
     public MessageDisplayer messageDisplayer;
     public TriggerController triggerControler;
     public Plunger plunger;
+    public PlayServices playServices;
+    public AchivementControlller achivementController;
+    public AudioController audioController;
     private LevelPhase actualLevelPhase;
 
     public LevelPhase ActualLevelPhase {
@@ -29,29 +32,15 @@ public class LevelController : MonoBehaviour
         set { actualLevelPhase = value; }
     }
 
+    private void Awake()
+    {
+        playServices = GameObject.Find("GPS").GetComponent<PlayServices>();
+        audioController = GameObject.Find("Main Camera").GetComponent<AudioController>();
+    }
+
     private void Start()
     {
         SetPhase(LevelPhase.Start);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown("1"))
-        {
-            SetPhase(LevelPhase.Start);
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            SetPhase(LevelPhase.Game);
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            SetPhase(LevelPhase.Tilt);
-        }
-        if (Input.GetKeyDown("4"))
-        {
-            SetPhase(LevelPhase.GameOver);
-        }
     }
 
     public void SetPhase(LevelPhase phase)
@@ -106,9 +95,11 @@ public class LevelController : MonoBehaviour
         lives--;
         if (lives == 0)
         {
+            audioController.GameOver();
             SetPhase(LevelPhase.GameOver);
         } else
         {
+            audioController.Fail();
             SetPhase(LevelPhase.Start);
         }
     }
@@ -125,12 +116,32 @@ public class LevelController : MonoBehaviour
 
     private void Tilt()
     {
+        audioController.Tilt();
         canTriggerFlippers = false;
         messageDisplayer.SetText("TILT !");
+        achivementController.FirstTiltAchivement();
+        StartCoroutine(TiltGameOver());
+    }
+
+    private IEnumerator TiltGameOver()
+    {
+        yield return new WaitForSeconds(1f);
+        SetPhase(LevelPhase.GameOver);
+    }
+
+    public void FlipperMoved()
+    {
+        if (canTriggerFlippers && actualLevelPhase != LevelPhase.GameOver && actualLevelPhase != LevelPhase.Pause && actualLevelPhase != LevelPhase.Tilt)
+        {
+            audioController.Flipper();
+        }
     }
 
     private void GameOver()
     {
+        achivementController.CheckInkrementalAhivements();
+        playServices.AddScoreToDescLeaderboard(score);
+        playServices.AddScoreToAscLeaderboard(score);
         canTriggerFlippers = false;
         messageDisplayer.HideMessage();
         UIController.GameOver();
