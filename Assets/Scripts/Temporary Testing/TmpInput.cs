@@ -38,13 +38,14 @@ public class TmpInput : MonoBehaviour
 	{
 		leftPressed.Value = Input.GetKey(leftKey);
 		rightPressed.Value = Input.GetKey(rightKey);
-		/*
+		
 		if (levelController.canTriggerFlippers)
 		{
 			foreach (Touch touch in Input.touches)
 			{
 				if (touch.phase == TouchPhase.Began)
 				{
+					levelController.FlipperMoved();
 					if ((touch.position.x < (Screen.width / 2)))
 					{
 						leftClickState = true;
@@ -79,7 +80,7 @@ public class TmpInput : MonoBehaviour
 
 		leftPressed.Value = leftClickState;
 		rightPressed.Value = rightClickState;
-		*/
+		/*
 		if (Input.GetKeyDown(leftKey)) {
 			levelController.FlipperMoved();
 			onLeftPressed.Raise();
@@ -92,6 +93,6 @@ public class TmpInput : MonoBehaviour
 		};
 		if (Input.GetKeyUp(rightKey)) onRightReleased.Raise();
 		
-		if (Input.GetKeyDown(spawnExtraBallKey)) onSpawnExtraBallPressed.Raise();
+		if (Input.GetKeyDown(spawnExtraBallKey)) onSpawnExtraBallPressed.Raise();*/
 	}
 }
